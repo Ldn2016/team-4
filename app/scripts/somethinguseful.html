@@ -3,6 +3,7 @@
 <script>
 
 $(document).ready(function() {
+localStorage.removeItem("StockData");
 var StockData=JSON.parse(localStorage.getItem("StockData"));
 if (!StockData) {
 	var StockData={"Plumpy'nut":{"name":"Plumpy'nut","quantity":0},"Plumpy'sup":{"name":"Plumpy'sup","quantity":0},"F-75":{"name":"F-75","quantity":0}};
@@ -14,11 +15,11 @@ StockData=JSON.parse(localStorage.getItem("StockData"));
 $('#submit').click(function() {
 console.log("hello", StockData);
 
-if (StockData[$('#sku').find(":selected").val()].quantity<=0){
+if (parseInt($('#newquant').val())<=0){
 	window.alert("Quantity is not valid!");
 }
 else {
-StockData[$('#sku').find(":selected").val()].quantity = StockData1[$('#sku').find(":selected").val()].quantity+$('#newquant').val();
+StockData[$('#sku').find(":selected").val()].quantity = parseInt(StockData[$('#sku').find(":selected").val()].quantity)+parseInt($('#newquant').val());
 }
 
 });
