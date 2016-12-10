@@ -1,20 +1,3 @@
-Skip to content
-This repository
-Search
-Pull requests
-Issues
-Gist
- @NNWilcox
- Watch 58
-  Star 701
- Fork 1,104 BlackrockDigital/startbootstrap-creative
- Code  Issues 3  Pull requests 1  Projects 0  Wiki  Pulse  Graphs
-Branch: master Find file Copy pathstartbootstrap-creative/css/creative.css
-e8fe2de  on 19 Aug
-@davidtmiller davidtmiller version update
-1 contributor
-RawBlameHistory
-417 lines (416 sloc)  9.33 KB
 /*!
  * Start Bootstrap - Creative v3.3.7+1 (http://startbootstrap.com/template-overviews/creative)
  * Copyright 2013-2016 Start Bootstrap
@@ -27,6 +10,8 @@ body {
 }
 body {
   font-family: 'Merriweather', 'Helvetica Neue', Arial, sans-serif;
+  text-align: center;
+  background-color: red;
 }
 hr {
   border-color: #F05F40;
@@ -431,5 +416,3 @@ img::-moz-selection {
 body {
   webkit-tap-highlight-color: #222222;
 }
-Contact GitHub API Training Shop Blog About
-© 2016 GitHub, Inc. Terms Privacy Security Status Help

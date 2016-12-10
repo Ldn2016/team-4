@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
 <meta charset="utf-8">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://code.jquery.com/jquery-3.1.1.min.js" ></script>
 <script>
 
 $(document).ready(function() {
@@ -18,7 +16,7 @@ if (!PatientData) {
 //localStorage.setItem("test", JSON.stringify(PatientData));
 
 
-$('#SubmitButton').click(function() {
+$('.btn btn-default').click(function() {
 var BMIin=$('#inBMI').val();
 var MUACin=$('#inMUAC').val();
 var OEDEMAin=$('#inOEDEMA').val();
@@ -69,30 +67,28 @@ else {
   <meta charset="utf-8">
   <title> Save The Children </title>
   <link rel="stylesheet" href="app.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 
-<div id="form_content">
-        <h1>Enter details</h1>
-          <div class="field">
-            <label for="email_field">BMI</label>
-            <input type="Integer" id="inBMI" value=0 />
+  <h1>Enter details</h1>
+
+  <form id="form_content">
+          <div class="form-group">
+            <label for="inBMI">BMI</label>
+            <input type="Integer" class="form-control" id="inBMI" value=0 />
           </div>
-          <div class="field">
+          <div class="form-group">
             <label for="inMUAC">MUAC</label>
-            <input type="Integer" id="inMUAC" value=0 />
+            <input type="Integer" class="form-control" id="inMUAC" value=0 />
           </div>
-          <div class="field">
+          <div class="form-group">
             <label for="inOEDEMA">Oedema</label>
-            <input type="Text" id="inOEDEMA" value="0" />
+            <input type="Text" class="form-control" id="inOEDEMA" value="0" />
           </div>
           <div class="actions">
-            <button id="SubmitButton" type="button">Submit</button>
+            <button class="btn btn-default" type="button">Submit</button>
           </div>
-      </div>
+      </form>
 <div></div>
 </body>
 </html>
