@@ -12,21 +12,21 @@
 
 <div id="form_content">
         <h1>Enter details</h1>
-        <form action="#" method="POST">
+        <p> Please enter </p>
           <div class="field">
             <label for="email_field">BMI</label>
-            <input type="text" id="email_field"/>
+            <input ng-model="bmi" type="number" id="email_field"/>
           </div>
           <div class="field">
             <label for="">MUAC</label>
-            <input type="text" id="password_field"/>
+            <input ng-disabled="bmi <= 11" type="text" id="password_field"/>
           </div>
           <div class="field">
             <label for="">Enema</label>
             <input type="text" id="password_field"/>
           </div>
           <div class="actions">
-            <input type="submit" value="Submit" onclick="click();">
+            <input type="button" value="Submit" onclick="click();">
           </div>
         </form>
       </div>
