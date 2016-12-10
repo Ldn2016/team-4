@@ -63,7 +63,7 @@ else {
 	}
 	else {
 		PatientData.DISCHARES+=1;
-		PatientData.TOTAL_EOF_PERIOD=PatientData.TOTAL_ADMISSIONS-PatientData.TOTAL_EOF_PERIOD;
+		PatientData.TOTAL_EOF_PERIOD=PatientData.TOTAL_ADMISSIONS-PatientData.DISCHARES;
 		localStorage.setItem("PatientData", JSON.stringify(PatientData));
 		console.log("STORAGE", JSON.stringify(PatientData));
 	}
