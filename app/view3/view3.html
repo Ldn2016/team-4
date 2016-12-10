@@ -1,5 +1,30 @@
 <!DOCTYPE html>
 <html>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script>
+
+$(document).ready(function() {
+var StockData=JSON.parse(localStorage.getItem("StockData"));
+if (!StockData) {
+	var StockData={"Plumpy'nut":{"name":"Plumpy'nut","quantity":0},"Plumpy'sup":{"name":"Plumpy'sup","quantity":0},"F-75":{"name":"F-75","quantity":0}};
+	localStorage.setItem("StockData", JSON.stringify(StockData));
+}
+
+StockData=JSON.parse(localStorage.getItem("StockData"));
+
+$('#submit').click(function() {
+console.log("hello", StockData);
+
+if (parseInt($('#newquant').val())<=0){
+	window.alert("Quantity is not valid!");
+}
+else {
+StockData[$('#sku').find(":selected").val()].quantity = parseInt(StockData[$('#sku').find(":selected").val()].quantity)+parseInt($('#newquant').val());
+}
+
+});
+});
+</script>
 <head>
   <meta charset="utf-8">
 </head>
