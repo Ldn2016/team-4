@@ -93,7 +93,7 @@ aside {
 .navbar-default .navbar-header .navbar-toggle {
   font-weight: 700;
   font-size: 12px;
-  color: #222222;
+  /*color: #222222;*/
   text-transform: uppercase;
 }
 .navbar-default .nav > li > a,
@@ -101,21 +101,24 @@ aside {
   text-transform: uppercase;
   font-weight: 700;
   font-size: 13px;
-  color: #222222;
+  /*color: #222222;
+  color: #f4f4f4;*/
+
 
 }
 .navbar-default .nav > li > a:hover,
 .navbar-default .nav > li > a:focus:hover {
-  color: #f4f4f4;
+  /*color: #f4f4f4;*/
+  /*background-color: #000;*/
 }
 .navbar-default .nav > li.active > a,
 .navbar-default .nav > li.active > a:focus {
-  color: #fff !important;
-  background-color: transparent;
+  color: #000 !important;
+  background-color: #fff;
 }
 .navbar-default .nav > li.active > a:hover,
 .navbar-default .nav > li.active > a:focus:hover {
-  background-color: transparent;
+  /*background-color: transparent;*/
 }
 @media (min-width: 768px) {
   .navbar-default {
