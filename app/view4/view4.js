@@ -2,12 +2,16 @@
 
 var PatientData=JSON.parse(localStorage.getItem("PatientData"));
 if (!PatientData) { //if the localStore is not assigned yet, assign it 0.
-  var PatientData={"BMI":0,"MUAC":0,"OEDEMA":0};
+  var PatientData={"BMI":0,"MUAC":0,"OEDEMA":0,"TOTAL_ADMISSIONS":0,"DISCHARGES":0,"TOTAL_EOF_PERIOD":0};
   localStorage.setItem("PatientData", JSON.stringify(PatientData));
 }
 var BMI=PatientData.BMI;
 var MUAC=PatientData.MUAC;
 var OEDEMA=PatientData.OEDEMA;
+var TOTAL_ADMISSIONS=PatientData.TOTAL_ADMISSIONS;
+var DISCHARGES=PatientData.DISCHARGES;
+var TOTAL_EOF_PERIOD=PatientData.TOTAL_EOF_PERIOD;
+
 
 angular.module('myApp.view4', ['ngRoute','chart.js'])
 
@@ -19,11 +23,11 @@ angular.module('myApp.view4', ['ngRoute','chart.js'])
 }])
 
 .controller('View4Ctrl', ['$scope', function($scope) {
-	$scope.labels = ['BMI', 'MUAC', 'OEDEMA'];
+	$scope.labels = ['BMI', 'MUAC', 'OEDEMA', 'TOTAL_ADMISSIONS', 'DISCHARGES', 'TOTAL_EOF_PERIOD'];
   $scope.series = ['Series A'];
 
   $scope.data = [
-    [BMI,MUAC,OEDEMA],
+    [BMI,MUAC,OEDEMA,TOTAL_ADMISSIONS,DISCHARGES,TOTAL_EOF_PERIOD],
     ["Current Month"]
   ];
 
@@ -34,13 +38,7 @@ angular.module('myApp.view4', ['ngRoute','chart.js'])
     $scope.chartType = chartType;
   }
 
-  /*$scope.labels = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
-  $scope.series = ['Series A', 'Series B'];
-
-  $scope.data = [
-    [65, 59, 80, 81, 56, 55, 40],
-    [28, 48, 40, 19, 86, 27, 90]
-  ];*/
+  
 }]);
 
 

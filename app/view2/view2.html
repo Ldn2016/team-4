@@ -4,10 +4,9 @@
 <script>
 
 $(document).ready(function() {
-
 var PatientData=JSON.parse(localStorage.getItem("PatientData"));
 if (!PatientData) {
-	var PatientData={"BMI":0,"MUAC":0,"OEDEMA":0,"TOTAL_ADMISSIONS":0,"DISCHARES":0,"TOTAL_EOF_PERIOD":0};
+	var PatientData={"BMI":0,"MUAC":0,"OEDEMA":0,"TOTAL_ADMISSIONS":0,"DISCHARGES":0,"TOTAL_EOF_PERIOD":0};
 	localStorage.setItem("PatientData", JSON.stringify(PatientData));
 }
 //var aeutgoahg JSON.stringify(PatientData).substring(0,JSON.stringify(PatientData).length-1)+"\"OEDEMA\":0}"
@@ -62,8 +61,8 @@ else {
 		return;
 	}
 	else {
-		PatientData.DISCHARES+=1;
-		PatientData.TOTAL_EOF_PERIOD=PatientData.TOTAL_ADMISSIONS-PatientData.DISCHARES;
+		PatientData.DISCHARGES+=1;
+		PatientData.TOTAL_EOF_PERIOD=PatientData.TOTAL_ADMISSIONS-PatientData.DISCHARGES;
 		localStorage.setItem("PatientData", JSON.stringify(PatientData));
 		console.log("STORAGE", JSON.stringify(PatientData));
 	}
@@ -98,7 +97,7 @@ else {
             <input type="Text" class="form-control width50" id="inOEDEMA" value="0" />
           </div>
           <div class="actions">
-            <button id="submit "class="btn btn-default" type="button">Submit</button>
+            <button id="submit" class="btn btn-default" type="button">Submit</button>
           </div>
       </form>
 <div></div>
