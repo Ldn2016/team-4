@@ -1,0 +1,28 @@
+<html>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+
+<script>
+
+$(document).ready(function() {
+var StockData={itemF7:{name:"Milk",quantity:4},itemF8:{name:"Eggs",quantity:2}};
+
+//StockData.itemF8
+
+$('#myfirstbutton').click(function() {
+console.log("hello", StockData);
+StockData[$('#sku *[selected]').val()].quantity = $('#newquant').val();
+console.log("world", StockData);
+
+});
+});
+</script>
+<input id="newquant" type="integer" value="4"></input>
+<select id="sku">
+<option value="itemF8">Eggs</option>
+<option value="itemF7" selected="selected">Milk</option>
+</select>
+
+<button id="myfirstbutton" type="button">Click me</button>
+
+
+</html>
