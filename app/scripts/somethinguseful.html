@@ -11,22 +11,28 @@ if (!StockData) {
 
 StockData=JSON.parse(localStorage.getItem("StockData"));
 
-$('#myfirstbutton').click(function() {
-console.log("hello", StockData1);
-StockData1[$('#sku').find(":selected").val()].quantity = $('#newquant').val();
-console.log("world", StockData1);
+$('#submit').click(function() {
+console.log("hello", StockData);
+
+if (StockData[$('#sku').find(":selected").val()].quantity<=0){
+	window.alert("Quantity is not valid!");
+}
+else {
+StockData[$('#sku').find(":selected").val()].quantity = StockData1[$('#sku').find(":selected").val()].quantity+$('#newquant').val();
+}
 
 });
 });
 </script>
 
-<input id="newquant" type="integer" value="4"></input>
+<input id="newquant" type="integer" value="0"></input>
 <select id="sku">
-	<option value="itemF8">Eggs</option>
-	<option value="itemF7" selected="selected">Milk</option>
+	<option value="Plumpy'nut" selected="selected">Plumpy'nut</option>
+	<option value="Plumpy'sup">Plumpy'sup</option>
+	<option value="F-75">F-75</option>
 </select>
 
-<button id="myfirstbutton" type="button">Click me</button>
+<button id="submit" type="button">Submit</button>
 
 
 </html>
