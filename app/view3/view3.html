@@ -1,43 +1,25 @@
 <!DOCTYPE html>
 <html>
-<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-<script>
-
-$(document).ready(function() {
-var StockData=JSON.parse(localStorage.getItem("StockData"));
-if (!StockData) {
-	var StockData={"Plumpy'nut":{"name":"Plumpy'nut","quantity":0},"Plumpy'sup":{"name":"Plumpy'sup","quantity":0},"F-75":{"name":"F-75","quantity":0}};
-	localStorage.setItem("StockData", JSON.stringify(StockData));
-}
-
-StockData=JSON.parse(localStorage.getItem("StockData"));
-
-$('#submit').click(function() {
-console.log("hello", StockData);
-
-if (parseInt($('#newquant').val())<=0){
-	window.alert("Quantity is not valid!");
-}
-else {
-StockData[$('#sku').find(":selected").val()].quantity = parseInt(StockData[$('#sku').find(":selected").val()].quantity)+parseInt($('#newquant').val());
-}
-
-});
-});
-</script>
 <head>
   <meta charset="utf-8">
 </head>
 <body>
-  <label for="newquant">Supplement</label>
-  <input id="newquant" type="integer" class="form-group" value="0"></input>
-  <select id="sku">
-  	<option value="Plumpy'nut" selected="selected">Plumpy'nut</option>
-  	<option value="Plumpy'sup">Plumpy'sup</option>
-  	<option value="F-75">F-75</option>
-  </select>
-
-  <button id="submit" class="btn btn-default" type="button">Submit</button>
-
+  <div class="Header">
+    <h1> Save The Children </h1>
+  </div>
+  <div class="Low">
+    <a href="mailto:name1@rapidtables.com
+      &amp;subject=Low%20Package%20Supply%20Stock
+      &amp;body=The%20body%20of%20the%20email">
+Send mail with cc, bcc, subject and body
+    <input type="button" value="Low Package">
+    </a>
+  </div>
+  <div class="Basic">
+    <input type="button" value="Basic Package" onclick="onClick();">
+  </div>
+  <div class="High">
+    <input type="button" value="High Package" onclick="onClick();">
+  </div>
 </body>
 </html>
