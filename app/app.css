@@ -13,6 +13,11 @@ body {
   text-align: center;
   background-color: #ff6666;
 }
+
+.width50{
+width:50%;
+margin:auto;
+}
 hr {
   border-color: #ffffff;
   border-width: 3px;
@@ -44,6 +49,7 @@ p {
   font-size: 16px;
   line-height: 1.5;
   margin-bottom: 20px;
+  color: white;
 }
 .bg-primary {
   background-color: #ffffff;

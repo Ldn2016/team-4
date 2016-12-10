@@ -7,7 +7,7 @@ $(document).ready(function() {
 
 var PatientData=JSON.parse(localStorage.getItem("PatientData"));
 if (!PatientData) {
-	var PatientData={"BMI":0,"MUAC":0,"OEDEMA":0,"TOTAL_ADMISSIONS":0,"DISCHARGED":0,"TOTAL_EOF_PERIOD":0};
+	var PatientData={"BMI":0,"MUAC":0,"OEDEMA":0};
 	localStorage.setItem("PatientData", JSON.stringify(PatientData));
 }
 //var aeutgoahg JSON.stringify(PatientData).substring(0,JSON.stringify(PatientData).length-1)+"\"OEDEMA\":0}"
@@ -39,31 +39,18 @@ else if ((OEDEMAin.toLowerCase()!="no") && (OEDEMAin.toLowerCase()!="yes"))  {
 else {
 	if (BMIin<17.5) {
 		PatientData.BMI+=1;
-		PatientData.TOTAL_ADMISSIONS+=1;
-		PatientData.TOTAL_EOF_PERIOD=PatientData.TOTAL_ADMISSIONS-PatientData.DISCHARGED;
 		localStorage.setItem("PatientData", JSON.stringify(PatientData));
 		console.log("STORAGE", JSON.stringify(PatientData));
 		return;
 	}
 	else if (MUACin<=11.5) {
 		PatientData.MUAC+=1;
-		PatientData.TOTAL_ADMISSIONS+=1;
-		PatientData.TOTAL_EOF_PERIOD=PatientData.TOTAL_ADMISSIONS-PatientData.DISCHARGED;
 		localStorage.setItem("PatientData", JSON.stringify(PatientData));
 		console.log("STORAGE", JSON.stringify(PatientData));
 		return;
 	}
 	else if (OEDEMAin.toLowerCase()=="yes") {
 		PatientData.OEDEMA+=1;
-		PatientData.TOTAL_ADMISSIONS+=1;
-		PatientData.TOTAL_EOF_PERIOD=PatientData.TOTAL_ADMISSIONS-PatientData.DISCHARGED;
-		localStorage.setItem("PatientData", JSON.stringify(PatientData));
-		console.log("STORAGE", JSON.stringify(PatientData));
-		return;
-	}
-	else {
-		PatientData.DISCHARGED+=1;
-		PatientData.TOTAL_EOF_PERIOD=PatientData.TOTAL_ADMISSIONS-PatientData.DISCHARGED;
 		localStorage.setItem("PatientData", JSON.stringify(PatientData));
 		console.log("STORAGE", JSON.stringify(PatientData));
 		return;
@@ -88,15 +75,15 @@ else {
   <form id="form_content">
           <div class="form-group">
             <label for="inBMI">BMI</label>
-            <input type="Integer" class="form-control" id="inBMI" value=0 />
+            <input type="Integer" class="form-control width90" id="inBMI" value=0 />
           </div>
           <div class="form-group">
             <label for="inMUAC">MUAC</label>
-            <input type="Integer" class="form-control" id="inMUAC" value=0 />
+            <input type="Integer" class="form-control width90" id="inMUAC" value=0 />
           </div>
           <div class="form-group">
             <label for="inOEDEMA">Oedema</label>
-            <input type="Text" class="form-control" id="inOEDEMA" value="0" />
+            <input type="Text" class="form-control width90" id="inOEDEMA" value="0" />
           </div>
           <div class="actions">
             <button class="btn btn-default" type="button">Submit</button>
