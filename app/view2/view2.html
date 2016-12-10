@@ -1,5 +1,69 @@
 <!DOCTYPE html>
 <html>
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script>
+
+$(document).ready(function() {
+
+var PatientData=JSON.parse(localStorage.getItem("PatientData"));
+if (!PatientData) {
+	var PatientData={"BMI":0,"MUAC":0,"OEDEMA":0};
+	localStorage.setItem("test", JSON.stringify(PatientData));
+}
+
+//var PatientData={"BMI":0,"MUAC":0,"OEDEMA":0};
+
+//localStorage.setItem("test", JSON.stringify(PatientData));
+
+
+$('#SubmitButton').click(function() {
+var BMIin=$('#inBMI').val();
+var MUACin=$('#inMUAC').val();
+var OEDEMAin=$('#inOEDEMA').val();
+
+console.log("BMI", BMIin);
+console.log("MUAC", MUACin);
+console.log("OEDEMA", OEDEMAin);
+if (BMIin<=0) {
+	window.alert("BMI is not valid!");
+	return;
+}
+else if (MUACin<=0){
+	window.alert("MUAC is not valid!");
+	return;
+}
+else if ((OEDEMAin.toLowerCase()!="no") && (OEDEMAin.toLowerCase()!="yes"))  {
+	window.alert("OEDEMA is not valid!")
+	return;
+}
+else {
+	if (BMIin<17.5) {
+		PatientData.BMI+=1;
+		localStorage.setItem("PatientData", JSON.stringify(PatientData));
+		console.log("STORAGE", JSON.stringify(PatientData));
+		return;
+	}
+	else if (MUACin<=11.5) {
+		PatientData.MUAC+=1;
+		localStorage.setItem("PatientData", JSON.stringify(PatientData));
+		console.log("STORAGE", JSON.stringify(PatientData));
+		return;
+	}
+	else if (OEDEMAin.toLowerCase()=="yes") {
+		PatientData.OEDEMA+=1;
+		localStorage.setItem("PatientData", JSON.stringify(PatientData));
+		console.log("STORAGE", JSON.stringify(PatientData));
+		return;
+	}
+}
+//console.log("STORAGE", JSON.stringify(PatientData));
+//StockData1[$('#sku').find(":selected").val()].quantity = $('#newquant').val();
+
+});
+});
+</script>
+
 <head>
   <meta charset="utf-8">
   <title> Save The Children </title>
@@ -12,23 +76,21 @@
 
 <div id="form_content">
         <h1>Enter details</h1>
-        <form action="#" method="POST">
           <div class="field">
             <label for="email_field">BMI</label>
-            <input type="text" id="email_field"/>
+            <input type="Integer" id="inBMI" value=0 />
           </div>
           <div class="field">
-            <label for="">MUAC</label>
-            <input type="text" id="password_field"/>
+            <label for="inMUAC">MUAC</label>
+            <input type="Integer" id="inMUAC" value=0 />
           </div>
           <div class="field">
-            <label for="">Enema</label>
-            <input type="text" id="password_field"/>
+            <label for="inOEDEMA">Oedema</label>
+            <input type="Text" id="inOEDEMA" value="0" />
           </div>
           <div class="actions">
-            <input type="submit" value="Submit" onclick="click();">
+            <button id="SubmitButton" type="button">Submit</button>
           </div>
-        </form>
       </div>
 <div></div>
 </body>
