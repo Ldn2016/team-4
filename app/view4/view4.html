@@ -10,8 +10,39 @@
   </div>
   <h2> Graph Visualations </h2>
   <p> This page will provide insightful graphics about data.</p><br/>
-  <canvas id="bar" class="chart chart-bar"
+  <input ng-model="chartType"></input>
+
+<canvas ng-if="chartType == 'doughnut'" id="doughnut" class="chart chart-doughnut"
   chart-data="data" chart-labels="labels">
-</canvas> 
+</canvas>
+
+<canvas ng-if="chartType.toLowerCase() == 'bar'" id="bar" class="chart chart-bar"
+  chart-data="data" chart-labels="labels">
+  </canvas>
+
+<canvas ng-if="chartType == 'line'" id="line" class="chart chart-line"
+  chart-data="data" chart-labels="labels">
+  </canvas>
+
+  <canvas ng-if="chartType == 'radar'" id="radar" class="chart chart-radar"
+  chart-data="data" chart-labels="labels">
+  </canvas>
+
+  <canvas ng-if="chartType.toLowerCase() == 'pie'" id="pie" class="chart chart-pie"
+  chart-data="data" chart-labels="labels">
+  </canvas>
+
+  <canvas ng-if="chartType == 'polar-area'" id="polar-area" class="chart chart-polar-area"
+  chart-data="data" chart-labels="labels">
+  </canvas>
+
+  <canvas ng-if="chartType == 'base'" id="base" class="chart chart-bubble"
+  chart-data="data" chart-series="series">
+  </canvas>
+
+  <canvas ng-if="chartType == 'base'" id="line" class="chart-base"
+  chart-type="type" chart-labels="labels">
+</canvas>
+
 </body>
 </html>
