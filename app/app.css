@@ -27,6 +27,8 @@ body {
 }
 body {
   font-family: 'Merriweather', 'Helvetica Neue', Arial, sans-serif;
+  text-align: center;
+
 }
 hr {
   border-color: #F05F40;
