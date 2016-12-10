@@ -26,6 +26,14 @@ angular.module('myApp.view4', ['ngRoute','chart.js'])
     [BMI,MUAC,OEDEMA],
     ["Current Month"]
   ];
+
+  $scope.chartTypes = ['doughnut', 'bar', 'line', 'radar', 'pie', 'polar-area', 'base'];
+  $scope.chartType = '';
+
+  $scope.displayChart = function(chartType) {
+    $scope.chartType = chartType;
+  }
+
   /*$scope.labels = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
   $scope.series = ['Series A', 'Series B'];
 
