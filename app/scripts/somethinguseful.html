@@ -3,9 +3,10 @@
 <script>
 
 $(document).ready(function() {
+localStorage.removeItem("StockData");
 var StockData=JSON.parse(localStorage.getItem("StockData"));
 if (!StockData) {
-	var StockData={"Plumpy'nut":{"name":"Plumpy'nut","quantity":0},"Plumpy'sup":{"name":"Plumpy'sup","quantity":0},"F-75":{"name":"F-75","quantity":0}};
+	var StockData={"Plumpy'nut":{"name":"Plumpy'nut","quantity":0,"maxQuantity":0},"Plumpy'sup":{"name":"Plumpy'sup","quantity":0,"maxQuantity":0},"F-75":{"name":"F-75","quantity":0,"maxQuantity":0}};
 	localStorage.setItem("StockData", JSON.stringify(StockData));
 }
 
@@ -17,8 +18,15 @@ console.log("hello", StockData);
 if (parseInt($('#newquant').val())<=0){
 	window.alert("Quantity is not valid!");
 }
+else if ((parseInt($('#newquant').val())>parseInt(StockData[$('#sku').find(":selected").val()].quantity)){
+	window.alert("Quantity cannot be more than stock!!!");
+}
 else {
-StockData[$('#sku').find(":selected").val()].quantity = parseInt(StockData[$('#sku').find(":selected").val()].quantity)+parseInt($('#newquant').val());
+	StockData[$('#sku').find(":selected").val()].quantity = parseInt(StockData[$('#sku').find(":selected").val()].quantity)-parseInt($('#newquant').val());
+	localStorage.setItem("StockData", JSON.stringify(StockData));
+	if (parseInt(StockData[$('#sku').find(":selected").val()].quantity)<parseInt(StockData[$('#sku').find(":selected").val()].maxQuantity)/10) {
+		window.alert("Less than 10% of the stock is left!");
+	}
 }
 
 });
