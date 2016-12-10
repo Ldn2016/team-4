@@ -10,7 +10,7 @@ $(document).ready(function() {
 var PatientData=JSON.parse(localStorage.getItem("PatientData"));
 if (!PatientData) {
 	var PatientData={"BMI":0,"MUAC":0,"OEDEMA":0};
-	localStorage.setItem("test", JSON.stringify(PatientData));
+	localStorage.setItem("PatientData", JSON.stringify(PatientData));
 }
 //var aeutgoahg JSON.stringify(PatientData).substring(0,JSON.stringify(PatientData).length-1)+"\"OEDEMA\":0}"
 //var PatientData={"BMI":0,"MUAC":0,"OEDEMA":0};
