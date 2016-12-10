@@ -16,7 +16,7 @@ if (!PatientData) {
 //localStorage.setItem("test", JSON.stringify(PatientData));
 
 
-$('.btn btn-default').click(function() {
+$('#submit').click(function() {
 var BMIin=$('#inBMI').val();
 var MUACin=$('#inMUAC').val();
 var OEDEMAin=$('#inOEDEMA').val();
@@ -98,7 +98,7 @@ else {
             <input type="Text" class="form-control width50" id="inOEDEMA" value="0" />
           </div>
           <div class="actions">
-            <button class="btn btn-default" type="button">Submit</button>
+            <button id="submit "class="btn btn-default" type="button">Submit</button>
           </div>
       </form>
 <div></div>
