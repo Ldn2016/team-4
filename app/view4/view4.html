@@ -1,5 +1,18 @@
 <!DOCTYPE html>
 <html>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" ></script>
+
+<script>
+
+$(document).ready(function() {
+$('#doughnut').click(function() {
+  //console.log('aaa');
+  $('#chartType').val('doughnut');
+  });
+});
+</script>
+
 <head>
   <meta charset="utf-8">
 </head>
@@ -9,7 +22,10 @@
   </div>
   <h2> Graph Visualations </h2>
   <p> This page will provide insightful graphics about data.</p><br/>
-  <input ng-model="chartType"></input>
+
+<div ng-repeat="currentChartType in chartTypes" style="display: inline-block;">
+  <button class="btn btn-primary" ng-click="displayChart(currentChartType)">{{currentChartType | capitalize}}</button>
+</div>
 
 <canvas ng-if="chartType == 'doughnut'" id="doughnut" class="chart chart-doughnut"
   chart-data="data" chart-labels="labels">
