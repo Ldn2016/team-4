@@ -7,7 +7,7 @@ $(document).ready(function() {
 
 var PatientData=JSON.parse(localStorage.getItem("PatientData"));
 if (!PatientData) {
-	var PatientData={"BMI":0,"MUAC":0,"OEDEMA":0};
+	var PatientData={"BMI":0,"MUAC":0,"OEDEMA":0,"TOTAL_ADMISSIONS":0,"DISCHARES":0,"TOTAL_EOF_PERIOD":0};
 	localStorage.setItem("PatientData", JSON.stringify(PatientData));
 }
 //var aeutgoahg JSON.stringify(PatientData).substring(0,JSON.stringify(PatientData).length-1)+"\"OEDEMA\":0}"
@@ -39,21 +39,33 @@ else if ((OEDEMAin.toLowerCase()!="no") && (OEDEMAin.toLowerCase()!="yes"))  {
 else {
 	if (BMIin<17.5) {
 		PatientData.BMI+=1;
+		PatientData.TOTAL_ADMISSIONS+=1;
+		PatientData.TOTAL_EOF_PERIOD+=1;
 		localStorage.setItem("PatientData", JSON.stringify(PatientData));
 		console.log("STORAGE", JSON.stringify(PatientData));
 		return;
 	}
 	else if (MUACin<=11.5) {
 		PatientData.MUAC+=1;
+		PatientData.TOTAL_ADMISSIONS+=1;
+		PatientData.TOTAL_EOF_PERIOD+=1;
 		localStorage.setItem("PatientData", JSON.stringify(PatientData));
 		console.log("STORAGE", JSON.stringify(PatientData));
 		return;
 	}
 	else if (OEDEMAin.toLowerCase()=="yes") {
 		PatientData.OEDEMA+=1;
+		PatientData.TOTAL_ADMISSIONS+=1;
+		PatientData.TOTAL_EOF_PERIOD+=1;
 		localStorage.setItem("PatientData", JSON.stringify(PatientData));
 		console.log("STORAGE", JSON.stringify(PatientData));
 		return;
+	}
+	else {
+		PatientData.DISCHARES+=1;
+		PatientData.TOTAL_EOF_PERIOD=PatientData.TOTAL_ADMISSIONS-PatientData.TOTAL_EOF_PERIOD;
+		localStorage.setItem("PatientData", JSON.stringify(PatientData));
+		console.log("STORAGE", JSON.stringify(PatientData));
 	}
 }
 //console.log("STORAGE", JSON.stringify(PatientData));
